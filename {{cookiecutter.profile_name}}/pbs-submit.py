@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os
+import os, re
 import sys
 import argparse
 import subprocess
@@ -125,7 +125,13 @@ if "resources" in job_properties:
     if "nodes" in resources: nodes="nodes=" + str(resources["nodes"])
     if ppn and not nodes : nodes="nodes=1"
     if "mem" in resources: mem="mem=" + str(resources["mem"])
+    if "mem_per_cpu" in resources:
+        if re.search('\D', resources["mem_per_cpu"]):
+            mem="mem=" + str(resources["mem_per_cpu"])
+        else:
+            mem="mem=" + str(resources["mem_per_cpu"]) + "mb"
     if "walltime" in resources: walltime="walltime=" + str(resources["walltime"])
+    if "time" in resources: walltime="walltime=" + str(resources["time"])
 
 if nodes or ppn or mem or walltime: resourceparams = " -l \""
 if nodes: resourceparams = resourceparams + nodes
