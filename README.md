@@ -10,7 +10,7 @@ To deploy this profile, run
 
     mkdir -p ~/.config/snakemake
     cd ~/.config/snakemake
-    cookiecutter https://github.com/Snakemake-Profiles/pbs-torque.git
+    cookiecutter https://github.com/Minhui-Chen/pbs-torque.git
 
 Then, you can run Snakemake with
 
