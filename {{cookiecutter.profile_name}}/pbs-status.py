@@ -19,7 +19,7 @@ try:
         xmldoc = ET.ElementTree(ET.fromstring(output)).getroot()
         job_state = xmldoc.findall('.//job_state')[0].text
     
-        if job_state == "C":
+        if job_state == "F":  # Light uses "F" instead of "C"
             exit_status = xmldoc.findall('.//exit_status')[0].text
             if exit_status == '0':
                 print("success")
@@ -38,7 +38,7 @@ try:
             elif "exit_status" in line:
                 exit_status = line.split('=')[-1].strip()
 
-        if job_state == "C":
+        if job_state == "F":  # Light uses "F" instead of "C"
             print("success" if exit_status == '0' else "failed")
         elif job_state:
             print("running")
