@@ -35,7 +35,7 @@ try:
         for line in output.splitlines():
             if "job_state" in line:
                 job_state = line.split('=')[-1].strip()
-            elif "exit_status" in line:
+            elif "exit_status" in line  or "Exit_status" in line:
                 exit_status = line.split('=')[-1].strip()
 
         if job_state == "F":  # Light uses "F" instead of "C"
