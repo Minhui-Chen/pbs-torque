@@ -3,6 +3,7 @@ cluster-status: "pbs-status.py"
 jobscript: "pbs-jobscript.sh"
 jobs: 500
 latency-wait: 300
+rerun-incomplete: True
 immediate-submit: {{cookiecutter.immediate_submit}}
 verbose: false
 notemp: false
