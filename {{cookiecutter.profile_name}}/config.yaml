@@ -2,6 +2,7 @@ cluster: "pbs-submit.py -o logs -e logs -N screml.{rule}.{wildcards}"  # --depen
 cluster-status: "pbs-status.py"
 jobscript: "pbs-jobscript.sh"
 jobs: 500
+latency-wait: 300
 immediate-submit: {{cookiecutter.immediate_submit}}
 verbose: false
 notemp: false
